@@ -1,0 +1,17 @@
+.purchase {
+
+    display: flex;
+    margin: 20px auto;
+    flex-direction: column;
+
+}
+
+.headerPurchase {
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}

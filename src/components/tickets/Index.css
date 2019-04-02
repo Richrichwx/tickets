@@ -1,0 +1,118 @@
+
+.container {
+    width: 565px;
+    height: 160px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 0 0 25px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.common {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+}
+.time {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+.departure {
+    font-size: 33px;
+    color: #656565;
+
+}
+.arrival {
+    font-size: 33px;
+    color: #656565;
+}
+
+.flightTransfers {
+    font-size: 11px;
+    color: darkgrey;
+}
+.containerLine{
+    width: 100px;
+    height: 1px;
+    background: #9f9f9f;
+    margin-top: 5px;
+}
+.containerStops{
+    text-align: center;
+}
+
+.cityNames {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 12px;
+    color: #656565;
+}
+
+.date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: darkgrey;
+}
+
+
+
+
+
+
+
+
+
+
+
+.logoCompany {
+    width: 200px;
+    border-right: 1px solid #e2e2e2;
+    height: 160px;
+}
+
+.logoCompanyItems {
+    width: 125px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.textAirlines {
+    margin: 0 0 0 45px;
+    color: #0000a7;
+    font-size: 15px;
+    line-height: 14px;
+    font-weight: 750;
+}
+
+.imageLogo {
+    width: 35px;
+    height: 35px;
+    align-items: center;
+}
+
+.buyButton {
+    width: 160px;
+    height: 60px;
+    border-radius: 8px;
+    background: #ff5d31;
+    border: 1px solid #ff5d31;
+    outline: none;
+    cursor: pointer;
+    margin: -4px 0 0 20px;
+    color: #ffff;
+    font-size: 17px;
+}
+
+.buyButton:hover {
+    background: coral;
+}
+.buyBtnText {
+    font-size: 16px;
+    margin: 0 0 6px 0;
+}
