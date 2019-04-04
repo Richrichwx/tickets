@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './Index.css';
 import { connect } from 'react-redux';
 import { findTickets } from '../../store/actions/tickets/filterTickets';
-import { getCurrency } from '../../store/actions/currency/currency';
-import { findCurrency} from '../../store/actions/currency/filterCurrency';
+
 
 const currency = [
     {
@@ -19,10 +18,6 @@ const currency = [
 
 class Sidebar extends Component{
 
-  componentDidMount() {
-    this.props.getCurrency(currency);
-  }
-
   state = {
     isGoing: false,
     isGoing1: false,
@@ -30,7 +25,6 @@ class Sidebar extends Component{
     isGoing3: false,
     isGoing4: false,
     idX: [],
-    idCurrency: []
   };
 
 
@@ -49,34 +43,23 @@ class Sidebar extends Component{
     });
   };
 
-  chooseCurrency = (idC) => {
-    let newIdCurrency = this.state.idCurrency;
-    if(newIdCurrency.indexOf(idC) < 0) {
-      newIdCurrency = [...newIdCurrency,idC];
-    } else {
-      newIdCurrency.splice(newIdCurrency.indexOf(idC),1);
-    }
-  };
-
-
   render() {
     const {isGoing,isGoing1,isGoing2,isGoing3,isGoing4,} = this.state;
-    const {currency: {currency}, filterCurrency}=this.props;
     return (
        <div className='sidebar'>
         <div className='surrency'>
           <p className='surrencyText'>ВАЛЮТА</p>
           <div className="currencyList">
-            {currency && currency.map((item,id) => (
+            {currency.map((item,id) => (
                <div className='listItems' key={id}>
                 <div className='currencyListItems'
-                     onClick={()=>this.chooseCurrency('rub')}>{item.rub}
+                   onClick={() => this.handleInputChange('rub')}>{item.rub}
                 </div>
                  <div className='currencyListItems'
-                      onClick={()=>this.chooseCurrency( 'usd')}>{item.usd}
+                      onClick={()=> this.handleInputChange( 'usd')}>{item.usd}
                  </div>
                  <div className='currencyListItems'
-                      onClick={()=>this.chooseCurrency('eur')}>{item.eur}
+                      onClick={()=> this.handleInputChange('eur')}>{item.eur}
                  </div>
               </div>
             ))}
@@ -125,13 +108,10 @@ class Sidebar extends Component{
 const mapStateToProps = state => ({
   tickets: state.tickets,
   currency: state.currency,
-  filterCurrency: state.filterCurrency.filterCurrency,
 });
 
 const mapDispatchToProps = {
   findTickets,
-  getCurrency,
-  findCurrency
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(Sidebar);

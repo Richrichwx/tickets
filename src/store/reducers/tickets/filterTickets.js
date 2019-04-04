@@ -10,7 +10,7 @@ export default function(state = initialState, action) {
       if(action.status){
         action.tickets.filter((item) => {
           action.newIdX.map((id) => {
-            if( id === item.stops) {
+            if( id === item.stops || id === item.currency) {
               newTickets = [...newTickets,item];
             }
             else if(id === 'all') {
