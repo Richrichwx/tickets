@@ -19,11 +19,11 @@ const currency = [
 class Sidebar extends Component{
 
   state = {
-    isGoing: false,
-    isGoing1: false,
-    isGoing2: false,
-    isGoing3: false,
-    isGoing4: false,
+    isGoingAll: false,
+    isGoingZero: false,
+    isGoingOne: false,
+    isGoingTwo: false,
+    isGoingThree: false,
     idX: [],
   };
 
@@ -71,31 +71,31 @@ class Sidebar extends Component{
              <div className='transplantsItems'>
                <input type="checkbox"
                       checked={isGoing}
-                      onChange={() => this.handleInputChange('all','isGoing')}/>
+                      onChange={() => this.handleInputChange('all','isGoingAll')}/>
                <p className='text'>Все</p>
              </div>
              <div className='transplantsItems'>
                <input type="checkbox"
                       checked={isGoing1}
-                      onChange={() =>this.handleInputChange(0,'isGoing1')}/>
+                      onChange={() =>this.handleInputChange(0,'isGoingZero')}/>
                <p className='text'>Без пересадок</p>
              </div>
              <div className='transplantsItems'>
                <input type="checkbox"
                       checked={isGoing2}
-                      onChange={() =>this.handleInputChange(1,'isGoing2')}/>
+                      onChange={() =>this.handleInputChange(1,'isGoingOne')}/>
                <p className='text'>1 пересадка</p>
              </div>
              <div className='transplantsItems'>
                <input type="checkbox"
                       checked={isGoing3}
-                      onChange={() =>this.handleInputChange(2,'isGoing3')}/>
+                      onChange={() =>this.handleInputChange(2,'isGoingTwo')}/>
                <p className='text'>2 пересадки</p>
              </div>
              <div className='transplantsItems'>
                <input type="checkbox"
                       checked={isGoing4}
-                      onChange={() =>this.handleInputChange(3,'isGoing4')}/>
+                      onChange={() =>this.handleInputChange(3,'isGoingThree')}/>
                <p className='text'>3 пересадки</p>
              </div>
            </div>
