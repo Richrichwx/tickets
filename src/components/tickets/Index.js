@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './Index.css';
 import turk from '../../assets/turk.png'
 import { connect } from 'react-redux';
-import { getTickets } from '../../store/actions/tickets';
+import { getTickets } from '../../store/actions/tickets/tickets';
+import { findCurrency} from '../../store/actions/currency/filterCurrency';
+
 
 
 const tickets = [
@@ -160,10 +162,12 @@ class Tickets extends Component {
 
 const mapStateToProps = state => ({
   tickets: state.tickets,
-  filterTickets: state.filterTickets.filterTickets
+  filterTickets: state.filterTickets.filterTickets,
+  currency: state.currency
 });
 const mapDispatchToProps = {
   getTickets,
+  findCurrency
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tickets);
