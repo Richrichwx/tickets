@@ -49,7 +49,13 @@ class Sidebar extends Component{
     });
   };
 
-  chooseCurrency = (id) => {
+  chooseCurrency = (idC) => {
+    let newIdCurrency = this.state.idCurrency;
+    if(newIdCurrency.indexOf(idC) < 0) {
+      newIdCurrency = [...newIdCurrency,idC];
+    } else {
+      newIdCurrency.splice(newIdCurrency.indexOf(idC),1);
+    }
   };
 
 
@@ -64,13 +70,13 @@ class Sidebar extends Component{
             {currency && currency.map((item,id) => (
                <div className='listItems' key={id}>
                 <div className='currencyListItems'
-                     onClick={this.chooseCurrency('rub')}>{item.rub}
+                     onClick={()=>this.chooseCurrency('rub')}>{item.rub}
                 </div>
                  <div className='currencyListItems'
-                      onClick={this.chooseCurrency( 'usd')}>{item.usd}
+                      onClick={()=>this.chooseCurrency( 'usd')}>{item.usd}
                  </div>
                  <div className='currencyListItems'
-                      onClick={this.chooseCurrency('eur')}>{item.eur}
+                      onClick={()=>this.chooseCurrency('eur')}>{item.eur}
                  </div>
               </div>
             ))}

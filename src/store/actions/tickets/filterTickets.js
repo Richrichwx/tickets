@@ -3,5 +3,5 @@ export const findTickets = (status,id,tickets,newIdX) => ({
   status,
   id,
   tickets,
-  newIdX
+  newIdX,
 });
