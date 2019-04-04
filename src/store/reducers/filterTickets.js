@@ -13,13 +13,12 @@ export default function(state = initialState, action) {
             if( id === item.stops) {
               newTickets = [...newTickets,item];
             }
+            else if(id === 'all') {
+              newTickets = action.tickets;
+            }
           })
         });
-      } else {
-
       }
-
-console.log(newTickets);
       return {
         ...state,
         filterTickets: newTickets

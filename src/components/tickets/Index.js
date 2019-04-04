@@ -17,7 +17,8 @@ const tickets = [
     "arrival_time": "22:10",
     "carrier": "TK",
     "stops": 3,
-    "price": 12400
+    "price": 12400,
+    "currency": 'rub'
   },
   {
     "origin": "VVO",
@@ -30,7 +31,8 @@ const tickets = [
     "arrival_time": "23:50",
     "carrier": "S7",
     "stops": 1,
-    "price": 13100
+    "price": 13100,
+    "currency": 'usd'
   },
   {
     "origin": "VVO",
@@ -43,7 +45,8 @@ const tickets = [
     "arrival_time": "18:10",
     "carrier": "SU",
     "stops": 0,
-    "price": 15300
+    "price": 15300,
+    "currency": 'eur'
   },
   {
     "origin": "VVO",
@@ -56,7 +59,8 @@ const tickets = [
     "arrival_time": "23:30",
     "carrier": "TK",
     "stops": 2,
-    "price": 11000
+    "price": 11000,
+    "currency": 'usd'
   },
   {
     "origin": "VVO",
@@ -69,7 +73,8 @@ const tickets = [
     "arrival_time": "20:15",
     "carrier": "BA",
     "stops": 3,
-    "price": 13400
+    "price": 13400,
+    "currency": 'rub'
   },
 ];
 
@@ -107,7 +112,7 @@ class Tickets extends Component {
                 <div className='button'>
                   <button className='buyButton'>
                     <p className='buyBtnText'>Купить за</p>
-                    { item.price}
+                    { item.price} {item.currency}
                   </button>
                 </div>
               </div>
