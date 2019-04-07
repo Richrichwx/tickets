@@ -7,7 +7,6 @@ export default function(state = initialState, action) {
     case 'FIND_TICKETS': {
       console.log('action ', action);
       let newTickets = [];
-      if(action.status){
         action.tickets.filter((item) => {
           action.newIdX.map((id) => {
             if( id === item.stops || id === item.currency) {
@@ -18,7 +17,6 @@ export default function(state = initialState, action) {
             }
           })
         });
-      }
       return {
         ...state,
         filterTickets: newTickets

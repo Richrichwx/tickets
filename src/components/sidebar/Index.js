@@ -25,16 +25,26 @@ class Sidebar extends Component{
     isGoingTwo: false,
     isGoingThree: false,
     idX: [],
+    isActiveCurrency: []
   };
 
-
-  handleInputChange = (id,e) => {
+  handleInputChange = (id,e,index) => {
     let newIdX = this.state.idX;
+    let newIsActiveCurrency = this.state.isActiveCurrency;
     if(newIdX.indexOf(id) < 0) {
       newIdX = [...newIdX,id];
-    } else {
+    }
+    else {
       newIdX.splice(newIdX.indexOf(id),1);
     }
+    if(newIsActiveCurrency.indexOf(index) < 0) {
+      newIsActiveCurrency.push(index);
+      console.log(newIsActiveCurrency)
+    }
+    else {
+      newIsActiveCurrency.splice(newIsActiveCurrency.indexOf(index),1)
+    }
+
     this.setState({
       idX: newIdX,
       [e]: !this.state[e]
@@ -53,13 +63,13 @@ class Sidebar extends Component{
             {currency.map((item,id) => (
                <div className='listItems' key={id}>
                 <div className='currencyListItems'
-                   onClick={() => this.handleInputChange('rub')}>{item.rub}
+                   onClick={() => this.handleInputChange('rub',null, id)}>{item.rub}
                 </div>
                  <div className='currencyListItems'
-                      onClick={()=> this.handleInputChange( 'usd')}>{item.usd}
+                      onClick={()=> this.handleInputChange( 'usd',null, id)}>{item.usd}
                  </div>
                  <div className='currencyListItems'
-                      onClick={()=> this.handleInputChange('eur')}>{item.eur}
+                      onClick={()=> this.handleInputChange('eur',null, id)}>{item.eur}
                  </div>
               </div>
             ))}
