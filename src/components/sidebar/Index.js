@@ -29,28 +29,32 @@ class Sidebar extends Component{
   };
 
   handleInputChange = (id,e,index) => {
-    let newIdX = this.state.idX;
-    let newIsActiveCurrency = this.state.isActiveCurrency;
-    if(newIdX.indexOf(id) < 0) {
-      newIdX = [...newIdX,id];
+    if(id!==null) {
+      let newIdX = this.state.idX;
+      let newIsActiveCurrency = this.state.isActiveCurrency;
+      if(newIdX.indexOf(id) < 0) {
+        newIdX = [...newIdX,id];
+      }
+      else {
+        newIdX.splice(newIdX.indexOf(id),1);
+      }
+      let currencyName = [];
+      if(newIsActiveCurrency.indexOf(index) < 0) {
+        newIsActiveCurrency=[...newIsActiveCurrency,index]
+        currencyName = [...currencyName,id]
+        console.log(currencyName)
+      }
+      else {
+        newIsActiveCurrency.splice(newIsActiveCurrency.indexOf(index),1)
+      }
+      this.setState({
+        idX: newIdX,
+        isActiveCurrency: newIsActiveCurrency,
+        [e]: !this.state[e]
+      }, () => {
+        this.props.findTickets(this.state[e],id,this.props.tickets.tickets,newIdX,currencyName);
+      });
     }
-    else {
-      newIdX.splice(newIdX.indexOf(id),1);
-    }
-    if(newIsActiveCurrency.indexOf(index) < 0) {
-      newIsActiveCurrency.push(index);
-      console.log(newIsActiveCurrency)
-    }
-    else {
-      newIsActiveCurrency.splice(newIsActiveCurrency.indexOf(index),1)
-    }
-
-    this.setState({
-      idX: newIdX,
-      [e]: !this.state[e]
-    }, () => {
-      this.props.findTickets(this.state[e],id,this.props.tickets.tickets,newIdX);
-    });
   };
 
   render() {
@@ -63,13 +67,13 @@ class Sidebar extends Component{
             {currency.map((item,id) => (
                <div className='listItems' key={id}>
                 <div className='currencyListItems'
-                   onClick={() => this.handleInputChange('rub',null, id)}>{item.rub}
+                   onClick={() => this.handleInputChange(null,null, 'rub')}>{item.rub}
                 </div>
                  <div className='currencyListItems'
-                      onClick={()=> this.handleInputChange( 'usd',null, id)}>{item.usd}
+                      onClick={()=> this.handleInputChange( 'usd',null, 'usd')}>{item.usd}
                  </div>
                  <div className='currencyListItems'
-                      onClick={()=> this.handleInputChange('eur',null, id)}>{item.eur}
+                      onClick={()=> this.handleInputChange('eur',null, 'eur')}>{item.eur}
                  </div>
               </div>
             ))}
